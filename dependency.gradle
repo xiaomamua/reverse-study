@@ -1,0 +1,50 @@
+ext.versions = [
+        springBoot         : "3.2.3",
+        lombok             : "1.18.30",
+        springFramework    : "5.3.24",
+        jacksonDatabind    : "2.13.1",
+        commonsLang3       : "3.7",
+        commonsCollections4: "4.2",
+        commonsCodec       : "1.15",
+//        validationApi      : "2.0.1.Final",
+        mysqlConnectorJava : '8.0.18',
+        guava              : "27.0.1-android",
+        modelmapper        : "3.0.0",
+//        knife4j            : "3.0.3",
+        okHttp             : "3.10.0",
+        r2dbcMysql         : "1.1.0",
+
+]
+
+ext.libs = [
+        "spring-boot"                            : "org.springframework.boot:spring-boot:${versions.springBoot}",
+        "spring-boot-autoconfigure"              : "org.springframework.boot:spring-boot-autoconfigure:${versions.springBoot}",
+        "spring-boot-starter-web"                : "org.springframework.boot:spring-boot-starter-web:${versions.springBoot}",
+        "spring-boot-starter-webflux"            : "org.springframework.boot:spring-boot-starter-webflux:${versions.springBoot}",
+//        "spring-boot-starter-logging"   : "org.springframework.boot:spring-boot-starter-logging:${versions.springBoot}",
+        "spring-boot-starter-data-jpa"           : "org.springframework.boot:spring-boot-starter-data-jpa:${versions.springBoot}",
+        "spring-boot-starter-data-redis-reactive": "org.springframework.boot:spring-boot-starter-data-redis-reactive:${versions.springBoot}",
+        "spring-boot-validation"                 : "org.springframework.boot:spring-boot-starter-validation:${versions.springBoot}",
+        "spring-boot-starter-actuator"           : "org.springframework.boot:spring-boot-starter-actuator:${versions.springBoot}",
+        "spring-boot-starter-integration"        : "org.springframework.boot:spring-boot-starter-integration:${versions.springBoot}",
+
+        "jackson-databind"                       : "com.fasterxml.jackson.core:jackson-databind:${versions.jacksonDatabind}",
+
+        "lombok"                                 : "org.projectlombok:lombok:${versions.lombok}",
+
+
+        "commons-lang"                           : "org.apache.commons:commons-lang3:${versions.commonsLang3}",
+        "commons-collections"                    : "org.apache.commons:commons-collections4:${versions.commonsCollections4}",
+        "commons-codec"                          : "commons-codec:commons-codec:${versions.commonsCodec}",
+        "guava"                                  : "com.google.guava:guava:${versions.guava}",
+//        "validation-api"                : "javax.validation:validation-api:${versions.validationApi}",
+
+        // run time
+        "mysql-connector-java"                   : "com.mysql:mysql-connector-j:${versions.mysqlConnectorJava}",
+        "spring-boot-starter-data-r2dbc"         : "org.springframework.boot:spring-boot-starter-data-r2dbc:${versions.springBoot}",
+        "modelmapper"                            : "org.modelmapper:modelmapper:${versions.modelmapper}",
+        "ok-http"                                : "com.squareup.okhttp3:okhttp:${versions.okHttp}",
+        "r2dbc-mysql"                            : "io.asyncer:r2dbc-mysql:${versions.r2dbcMysql}",
+        "commons-pool"                          : "org.apache.commons:commons-pool2"
+]
+

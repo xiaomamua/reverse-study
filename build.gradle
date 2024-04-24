@@ -1,0 +1,90 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.2.3'
+    id 'io.spring.dependency-management' version '1.1.4'
+    id 'org.hibernate.orm' version '6.4.2.Final'
+    id 'org.graalvm.buildtools.native' version '0.9.28'
+    id 'java-library'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+apply from: 'dependency.gradle'
+
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+allprojects {
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'org.graalvm.buildtools.native'
+    repositories {
+        mavenLocal()
+
+        maven {
+            url "https://maven.aliyun.com/repository/central"
+        }
+        maven {
+            allowInsecureProtocol = true
+            url "http://maven.aliyun.com/nexus/content/groups/public/"
+        }
+        google()
+        mavenCentral()
+    }
+
+    graalvmNative {
+        binaries {
+            main {
+                buildArgs.add('--enable-preview')
+            }
+        }
+    }
+
+    tasks.withType(JavaCompile).configureEach {
+        options.compilerArgs += "--enable-preview"
+    }
+
+    tasks.withType(Test).configureEach {
+        jvmArgs += "--enable-preview"
+    }
+
+    tasks.withType(JavaExec).configureEach {
+        jvmArgs += "--enable-preview"
+    }
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'org.graalvm.buildtools.native'
+    apply plugin: 'java-library'
+
+    sourceCompatibility = 21
+    targetCompatibility = 21
+
+
+    dependencies {
+
+//        implementation 'org.springframework.boot:spring-boot-starter-data-redis-reactive'
+        compileOnly(libs."lombok",)
+        annotationProcessor(libs."lombok")
+    }
+}
+
+hibernate {
+    enhancement {
+        enableAssociationManagement.set(true)
+        enableDirtyTracking.set(true)
+        enableLazyInitialization.set(true)
+        enableExtendedEnhancement.set(false)
+    }
+}

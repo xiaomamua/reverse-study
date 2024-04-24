@@ -1,0 +1,11 @@
+rootProject.name = 'taxi'
+include 'server'
+
+include 'executor-api'
+include 'executors:didi-executor'
+include 'executors:executor-client'
+
+include 'common'
+include 'server-mgr:server-mgr-api'
+include 'server-mgr:server-mgr-core'
+

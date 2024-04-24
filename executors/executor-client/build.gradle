@@ -1,0 +1,22 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.2.3'
+    id 'io.spring.dependency-management' version '1.1.4'
+    id 'org.graalvm.buildtools.native' version '0.9.28'
+}
+
+configurations {
+    compile.exclude module: 'spring-boot-starter-tomcat'
+}
+
+dependencies {
+    implementation(
+            project(":common"),
+            project(':server-mgr:server-mgr-api'),
+            project(':executors:didi-executor'),
+
+            libs."spring-boot",
+            libs."spring-boot-starter-webflux",
+            libs."spring-boot-starter-data-redis-reactive"
+    )
+}

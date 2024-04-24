@@ -1,0 +1,17 @@
+plugins {
+    id 'java'
+}
+
+dependencies {
+    api(project(":executor-api"))
+    implementation 'com.github.zhkl0228:keystone:0.9.5'
+    implementation 'com.github.zhkl0228:unidbg-api:0.9.5'
+    implementation 'com.github.zhkl0228:unidbg-android:0.9.5'
+    implementation 'com.github.zhkl0228:unidbg-dynarmic:0.9.5'
+    implementation 'com.github.zhkl0228:unicorn:1.0.12'
+
+    implementation(
+            libs."commons-lang",
+            libs."jackson-databind",
+    )
+}

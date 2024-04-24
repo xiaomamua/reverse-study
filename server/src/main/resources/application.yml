@@ -1,0 +1,22 @@
+# dev  prod  test
+spring.profiles.active: prod
+
+server:
+  http2:
+    enabled: true
+  netty:
+    connection-timeout: 30000
+
+
+
+# logback默认顺序
+# 1、尝试在 classpath 下查找文件 logback-test.xml
+# 2、如果文件不存在，则查找文件 logback.xml
+# 因此我们自己配置文件不能命名为logback-test.xml，否则loggin.config会将logback-test.xml文件的内容合并到最终结果中
+logging.config: classpath:mylogback-${spring.profiles.active}.xml
+spring:
+  jackson:
+    serialization:
+      FAIL_ON_EMPTY_BEANS: false
+  main:
+    web-application-type: REACTIVE

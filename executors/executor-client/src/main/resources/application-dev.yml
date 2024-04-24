@@ -1,0 +1,24 @@
+spring:
+  webflux:
+    base-path: /taxi-client
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+  data:
+    redis:
+      host: 127.0.0.1
+      port: 6379
+      password:
+      timeout: 5000
+      database: 0
+      jedis:
+        pool:
+          max-idle: 10
+  threads:
+    virtual:
+      enabled: true
+
+management:
+  health:
+    redis:
+      enabled: false

@@ -1,0 +1,8 @@
+plugins {
+    id 'java'
+    id 'java-library'
+}
+
+dependencies {
+    api(libs."spring-boot-starter-webflux")
+}

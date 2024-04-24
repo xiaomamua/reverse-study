@@ -1,0 +1,25 @@
+spring:
+  webflux:
+    base-path: /taxi-server
+  jpa:
+    show-sql: true
+    hibernate.ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+  r2dbc:
+    url: r2dbcs:mysql://localhost/taxi?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=CONVERT_TO_NULL&autoReconnect=true
+    username: root
+    password: root*123
+    pool:
+      validation-query: SELECT 1
+      enabled: true
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+  threads:
+    virtual:
+      enabled: true
+
+management:
+  health:
+    redis:
+      enabled: false
